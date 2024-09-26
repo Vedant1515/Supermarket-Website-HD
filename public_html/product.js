@@ -1,14 +1,5 @@
-// In products.js
-let products = [
-    // Your products array here
-];
-
-// Export the products for global access if needed
-module.exports = products;
-
-
 function filterProducts(category) {
-    const products = document.querySelectorAll('.product');
+    const products = document.querySelectorAll('.product-item');
     products.forEach(product => {
         if (category === 'all' || product.dataset.category === category) {
             product.style.display = 'block';
@@ -17,7 +8,6 @@ function filterProducts(category) {
         }
     });
 }
-
 function showModal(category) {
     const modal = document.getElementById('product-modal');
     const title = modal.querySelector('#modal-title');

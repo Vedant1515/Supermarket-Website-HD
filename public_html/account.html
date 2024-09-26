@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Account - Supermarket</title>
+    <!-- Link to external CSS for account page styling -->
     <link rel="stylesheet" href="account.css">        
+    <!-- Link to JavaScript for dark mode functionality -->
     <script defer src="darkmode.js"></script>
+    <!-- Link to external CSS for dark mode styling -->
     <link rel="stylesheet" href="dark.css">
 </head>
 <body>
     <header>
-
+        <!-- Dark mode toggle switch -->
         <label class="dark-mode-label">
             <input type="checkbox" id="darkModeToggle">
             <span class="slider">
@@ -21,6 +24,7 @@
         <h1>Supermarket</h1>
         <nav>
             <ul>
+                <!-- Navigation links to other pages -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -31,6 +35,7 @@
             </ul>
         </nav>
         <div id="search-bar">
+            <!-- Search bar for product searches -->
             <input type="text" placeholder="Search...">
             <button>Search</button>
         </div>
@@ -39,54 +44,58 @@
     <main>
         <h2>Customer Account</h2>
 
+        <!-- Sign-up section -->
         <div class="signup-box">
             <h3>Sign Up</h3>
             <form id="signupForm" action="/submit-signup" method="POST">
                 <div>
                     <label for="signupUsername">Username:</label>
-                    <input type="text" id="signupUsername" name="username" required>
+                    <input type="text" id="signupUsername" name="username" required> <!-- Required username input -->
                 </div>
 
                 <div>
                     <label for="signupEmail">Email:</label>
-                    <input type="email" id="signupEmail" name="email" required>
+                    <input type="email" id="signupEmail" name="email" required> <!-- Required email input -->
                 </div>
 
                 <div>
                     <label for="signupPassword">Password:</label>
-                    <input type="password" id="signupPassword" name="password" required>
+                    <input type="password" id="signupPassword" name="password" required> <!-- Required password input -->
                 </div>
 
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign Up</button> <!-- Sign-up button -->
             </form>
         </div>
 
+        <!-- Login section -->
         <div class="account-box">
             <h3>Login</h3>
             <form id="loginForm" action="/submit-login" method="POST">
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required> <!-- Required email input for login -->
                 </div>
 
                 <div>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" required> <!-- Required password input for login -->
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit">Login</button> <!-- Login button -->
 
                 <div class="additional-links">
-                    <a href="#">Forgot Password?</a>
+                    <a href="#">Forgot Password?</a> <!-- Link for password recovery -->
                 </div>
             </form>
         </div>
     </main>
 
     <footer>
+        <!-- Footer with copyright information -->
         <p>&copy; 2024 Supermarket. All rights reserved.</p>
         <nav>
             <ul>
+                <!-- Additional navigation links in the footer -->
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="locator.html">Store Locator</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -95,6 +104,7 @@
         </nav>
     </footer>
 
+    <!-- Link to JavaScript for form validation -->
     <script src="account_valid.js"></script>
 </body>
 </html>

@@ -3,18 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supermarket Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="dark.css">
     
+    <!-- Ensures that the webpage is responsive and fits properly on all screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Defines the title of the page, which appears in the browser tab -->
+    <title>Supermarket Website</title>
+    
+    <!-- Link to the main stylesheet for styling the webpage -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Link to an additional stylesheet for dark mode styling -->
+    <link rel="stylesheet" href="dark.css">
 </head>
 
 <body>
     <header>
+        <!-- Main heading for the website -->
         <h1>Supermarket</h1>
+
+        <!-- Navigation menu for navigating between different pages -->
         <nav>
             <ul>
+                <!-- Each list item represents a page link -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -24,33 +35,44 @@
                 <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
+
+        <!-- Dark mode toggle switch (checkbox) for switching between light and dark themes -->
         <label class="dark-mode-label">
             <input type="checkbox" id="darkModeToggle">
+            <!-- Custom slider with sun and moon icons to represent light and dark mode -->
             <span class="slider">
                 <span class="symbol light">☀️</span>
                 <span class="symbol dark">🌙</span>
             </span>
         </label>
-        
+
+        <!-- Search bar for users to search for products or content on the site -->
         <div id="search-bar">
             <input type="text" placeholder="Search...">
             <button>Search</button>
         </div>
     </header>
 
-    <!-- Sun-Moon Sidebar Toggle -->
+    <!-- Sun-Moon theme toggle button displayed as a floating icon on the page -->
     <div class="theme-toggle" id="theme-toggle">
+        <!-- Font Awesome icon for the sun (indicating light mode) -->
         <i id="theme-icon" class="fas fa-sun"></i>
     </div>
 
+    <!-- Main content section of the page -->
     <main>
+        <!-- Promotional banner to welcome users to the supermarket -->
         <section id="promo-banner">
             <h2>Welcome to Our Supermarket</h2>
             <p>Discover amazing deals and fresh products!</p>
         </section>
+
+        <!-- Section showcasing featured products -->
         <section id="featured-products">
             <h3>Featured Products</h3>
+            <!-- Grid layout to display products -->
             <div class="product-grid">
+                <!-- Individual product with image, name, description, and price -->
                 <div class="product">
                     <img src="https://picsum.photos/300/201" alt="Product 1">
                     <h4>Mario Toy</h4>
@@ -74,8 +96,11 @@
                 </div>
             </div>
         </section>
+
+        <!-- Section displaying latest deals -->
         <section id="latest-deals">
             <h3>Latest Deals</h3>
+            <!-- Box containing a deal, including an image and description -->
             <div class="deal-box">
                 <img src="https://picsum.photos/400/200" alt="Deal 1">
                 <div class="deal-info">
@@ -85,8 +110,11 @@
                 </div>
             </div>
         </section>
+
+        <!-- Section displaying store news -->
         <section id="store-news">
             <h3>Store News</h3>
+            <!-- Box containing store news, with image and a brief description -->
             <div class="news-box">
                 <img src="https://picsum.photos/400/202" alt="News 1">
                 <div class="news-info">
@@ -97,8 +125,12 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer section containing site navigation links and copyright -->
     <footer>
+        <!-- Copyright notice -->
         <p>&copy; 2024 Supermarket. All rights reserved.</p>
+        <!-- Additional navigation links in the footer -->
         <nav>
             <ul>
                 <li><a href="about.html">About Us</a></li>
@@ -109,8 +141,10 @@
         </nav>
     </footer>
 
-    <!-- Font Awesome for Sun and Moon Icons -->
+    <!-- Link to Font Awesome for icons (like the sun and moon icons for dark mode toggle) -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <!-- Link to the JavaScript file for dark mode functionality -->
     <script src="dark.js"></script>
 </body>
 

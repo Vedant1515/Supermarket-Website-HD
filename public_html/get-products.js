@@ -1,55 +1,53 @@
-window.onload = function() {
-    fetch('/get-products')
+// Assuming you have a global array of products loaded from some data source
+let products = [];
+
+// Function to load products from a data source (e.g., API, static JSON file, etc.)
+function loadProducts() {
+    // Example: Fetch products from an API or local data source
+    fetch('products.json') // Replace with your actual data source
         .then(response => response.json())
-        .then(products => displayProducts(products))
-        .catch(error => console.error('Error fetching products:', error));
-};
+        .then(data => {
+            products = data; // Assign the fetched products to the global products array
+            displayProducts(products); // Display the products in the DOM
+        })
+        .catch(error => console.error('Error loading products:', error));
+}
 
-function displayProducts(products) {
+// Function to display products in the DOM
+function displayProducts(productArray) {
     const productList = document.getElementById('productList');
-    const noProductsMessage = document.getElementById('noProductsMessage');
-    
-    productList.innerHTML = '';
+    productList.innerHTML = ''; // Clear previous products
 
-    if (products.length === 0) {
-        noProductsMessage.style.display = 'block';
+    if (productArray.length === 0) {
+        document.getElementById('noProductsMessage').style.display = 'block'; // Show message if no products
         return;
-    } else {
-        noProductsMessage.style.display = 'none';
     }
 
-    products.forEach(product => {
+    productArray.forEach(product => {
         const productDiv = document.createElement('div');
-        productDiv.classList.add('product');
+        productDiv.className = 'product-item'; // Add a class for styling
 
-        const img = document.createElement('img');
-        img.src = `https://picsum.photos/seed/${product.id}/200`; 
-        img.alt = product.name;
+        productDiv.innerHTML = `
+            <h2>${product.name}</h2>
+            <p>Price: $${product.price.toFixed(2)}</p>
+            <p>${product.description}</p>
+        `;
 
-        const name = document.createElement('h2');
-        name.innerText = product.name;
-
-        const price = document.createElement('p');
-        price.innerText = `Price: $${product.price}`;
-        productDiv.appendChild(img);
-        productDiv.appendChild(name);
-        productDiv.appendChild(price);
-
-        productList.appendChild(productDiv);
+        productList.appendChild(productDiv); // Add the product to the product list
     });
+
+    document.getElementById('noProductsMessage').style.display = 'none'; // Hide message if products are found
 }
 
-// filter products by name
+// Function to filter products based on the search input
 function filterProducts() {
-    const searchQuery = document.getElementById('searchBox').value.toLowerCase();
-    const products = document.querySelectorAll('.product');
+    const searchBox = document.getElementById('searchBox').value.toLowerCase(); // Get search input
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchBox) // Check if product name includes the search term
+    );
 
-    products.forEach(product => {
-        const name = product.querySelector('h2').innerText.toLowerCase();
-        if (name.includes(searchQuery)) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    });
+    displayProducts(filteredProducts); // Display the filtered products
 }
+
+// Call loadProducts when the page loads
+document.addEventListener('DOMContentLoaded', loadProducts);

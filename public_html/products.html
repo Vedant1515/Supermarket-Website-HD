@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Declares the character encoding as UTF-8 and sets up responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- The title of the page, displayed in the browser tab -->
     <title>Products - Supermarket</title>
     
+    <!-- Link to the external CSS file for styling the product page -->
     <link rel="stylesheet" href="product.css">
+    
+    <!-- Link to the external JavaScript file, loaded after the document (defer attribute) -->
     <script defer src="product.js"></script>
+    
+    <!-- Link to the CSS file for dark mode styling -->
     <link rel="stylesheet" href="dark.css">
 </head>
 <body>
+    <!-- Header containing navigation and dark mode toggle -->
     <header>
+        <!-- Dark mode toggle checkbox with custom slider icons for light and dark mode -->
         <label class="dark-mode-label">
             <input type="checkbox" id="darkModeToggle">
             <span class="slider">
@@ -18,7 +28,11 @@
                 <span class="symbol dark">🌙</span>
             </span>
         </label>
+        
+        <!-- Website's main heading -->
         <h1>Supermarket</h1>
+        
+        <!-- Navigation bar with links to various pages -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -30,14 +44,19 @@
                 <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
+        
+        <!-- Search bar for searching products or content -->
         <div id="search-bar">
             <input type="text" placeholder="Search...">
             <button>Search</button>
         </div>
     </header>
 
+    <!-- Main section where products and filter options are displayed -->
     <main>
         <h2>Products</h2>
+        
+        <!-- Filter buttons to categorize products based on type -->
         <div class="filter">
             <button onclick="filterProducts('all')">All</button>
             <button onclick="filterProducts('electronics')">Electronics</button>
@@ -48,11 +67,13 @@
             <button onclick="filterProducts('toys')">Toys</button>
         </div>
         
+        <!-- Container where product items will be dynamically inserted -->
         <div id="product-container" class="product-grid">
-            <!-- Products will be dynamically loaded here -->
+            <!-- Products are loaded dynamically with JavaScript -->
         </div>
     </main>
 
+    <!-- Footer containing additional navigation links and copyright information -->
     <footer>
         <p>&copy; 2024 Supermarket. All rights reserved.</p>
         <nav>
@@ -65,17 +86,22 @@
         </nav>
     </footer>
     
+    <!-- External script file for dark mode functionality -->
     <script src="darkmode.js"></script>
     
+    <!-- Modal dialog for displaying product details when clicked -->
     <div id="product-modal" class="modal">
         <div class="modal-content">
+            <!-- Close button for the modal -->
             <span class="close-button" onclick="closeModal()">&times;</span>
+            <!-- Modal title and description (dynamically updated) -->
             <h2 id="modal-title">Product Title</h2>
             <p id="modal-description">Product description will go here.</p>
         </div>
     </div>
     
     <script>
+        // Function to add products to the cart, stores cart items in localStorage
         function addToCart(name, price, quantity) {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const itemIndex = cart.findIndex(item => item.name === name);
@@ -93,7 +119,7 @@
             alert(`${quantity} of ${name} added to cart!`); // Optional alert for user feedback
         }
 
-        // Fetch products and populate the product grid
+        // Fetch products from the server and dynamically populate the product grid
         fetch('/api/products')
             .then(response => response.json())
             .then(products => {
